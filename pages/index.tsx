@@ -7,7 +7,9 @@ import {
   Text,
   List,
   Code,
+  Input,
 } from '@vercel/examples-ui'
+import { PinInput } from '@chakra-ui/react'
 
 export default function Home() {
   const { data, status } = useSession()
@@ -15,16 +17,15 @@ export default function Home() {
   return (
     <Page>
       <section className="flex flex-col gap-6">
-        <Text variant="h1">Securing routes using next-auth</Text>
+        <Text variant="h1">Login Social - Github</Text>
         <Text>
-          Wrapping our <Code>pages/_app</Code> using{' '}
-          <Code>SessionProvider</Code> from <Code>next-auth</Code> will secure
-          all our pages. If we configure sub domains or rewrites, all will be
-          behind an auth wall.
+          Para fazer o login com sua conta do Github basta clicar no botão abaixo.
         </Text>
       </section>
 
       <hr className="border-t border-accents-2 my-6" />
+
+      <Input width='auto' />
 
       <section className="flex flex-col gap-3">
         {status === 'authenticated' ? (
