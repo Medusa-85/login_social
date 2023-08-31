@@ -10,9 +10,11 @@ import {
   Input,
 } from '@vercel/examples-ui'
 import { PinInput } from '@chakra-ui/react'
+import { useEffect } from 'react'
 
 export default function Home() {
   const { data, status } = useSession()
+  useEffect(()=> console.log(process.env.GITHUB_ID), [])
 
   return (
     <Page>
