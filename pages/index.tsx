@@ -9,12 +9,12 @@ import {
   Code,
   Input,
 } from '@vercel/examples-ui'
-import { PinInput } from '@chakra-ui/react'
-import { useEffect } from 'react'
+import { EmailInput } from './api/auth/inputs/email'
+import { PasswordInput } from './api/auth/inputs/password'
+import { FormContainer } from './api/auth/inputs/style'
 
 export default function Home() {
   const { data, status } = useSession()
-  useEffect(()=> console.log(process.env.GITHUB_ID), [])
 
   return (
     <Page>
@@ -27,12 +27,18 @@ export default function Home() {
 
       <hr className="border-t border-accents-2 my-6" />
 
-      <Input width='auto' />
+      <FormContainer>
+        <EmailInput/>
+        <PasswordInput/>
+        <Button color='blue' width={'10vw'}>Entrar</Button>
+      </FormContainer>
 
+      <hr className="border-t border-accents-2 my-6" />
+    
       <section className="flex flex-col gap-3">
         {status === 'authenticated' ? (
           <section className="flex flex-col gap-3">
-            Welcome {data?.user?.name}!{' '}
+            Welcome {data?.user?.name}!{' '}  
             <Button onClick={() => signOut()}>Sign out</Button>
             <List>
               <li>
